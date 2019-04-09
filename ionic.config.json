@@ -1,0 +1,7 @@
+{
+  "name": "Attendence",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

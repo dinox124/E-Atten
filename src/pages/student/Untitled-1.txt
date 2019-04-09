@@ -1,0 +1,53 @@
+ moviesList;
+  title
+   public toggleValue:String;
+   sname;
+  public isToggled:Boolean;
+    constructor(public navCtrl: NavController,private http:Http) {
+    
+  
+    this.http.get("http://localhost:3000/api/tasks").toPromise().then((filmList) => {
+      this.isToggled = true;
+
+      this.moviesList = filmList.json();
+      this.title=filmList.headers;
+      console.log(filmList.json());
+    },(err) => {
+      console.log(err);
+    
+    })
+    
+
+  }
+  public notifye(name) {
+ 
+    //console.log("value"+this.toggleValue);
+     console.log(name);
+  }
+  /*changeToggle() {
+     this.sname=this.moviesList.title;
+     length=this.sname.length();
+     for(var i=0;i>length;i++){
+    console.log(this.sname[i]);
+  }
+  }*/
+  notify(event:any,name:String){
+    console.log(event.target.name);
+  }
+  toggleswitch(){
+  //  this.toggleValue=false;
+   // console.log('Toggle Value='+this.);
+  }
+  update(event){
+    console.log("notified");
+  }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad StudentPage');
+  }
+  submit(name){
+    const Selectrollno=this.moviesList.value.map((v, i) => v ? this.moviesList[i].title : null)
+    .filter(v => v !== null);
+
+  console.log(Selectrollno);
+  }
